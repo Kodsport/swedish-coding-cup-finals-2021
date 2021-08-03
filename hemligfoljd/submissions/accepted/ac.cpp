@@ -26,6 +26,8 @@ ll solve(ll lo, ll hi){
     ll x = ask(0,0,lo,hi+1);
     if (x) return 1;
     else return 0;
+  } else if (lo > hi) {
+    return 0;
   }
   ll a = 2*lo, b = 2*hi;
   ll mid = (a+b)/2;
