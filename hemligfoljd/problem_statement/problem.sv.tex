@@ -1,29 +1,28 @@
-\problemname{Hemligfoljd}
-TODO: SVENSK VERSION
+\problemname{Hemligfoljd}   % Hemlig Följd
+En hemlig följd innehåller $n$ tal, och varje tal är antingen en etta eller en nolla. Du vill ta reda på hur många
+ettor som finns i följden. För att göra det får du ställa frågor genom att specificera fyra heltal
+$0 \leq a \leq b \leq c \leq d \leq n$. Svaret på en fråga är $-1$ om summan av talen i intervallet $[a,b)$ är större
+än summan av talen i intervallet $[c,d)$, medan den är $1$ om summan är mindre. Om summorna är lika, så blir svaret $0$.
+Talen i följden är numrerade från $0$ till $n-1$.
 
-There is a secret sequence of zeros and ones with length $n$, and you want to know the number of ones in the sequence.
-You are allowed to ask queries by giving four integers $0 \leq a \leq b \leq c \leq d \leq n$. The answer
-to the query will be $-1$ if the sum of the numbers in the interval $[a,b)$ is larger than the sum of the numbers
-in the interval $[c,d)$, and $1$ if the sum is smaller. If the sums are equal, the answer will be $0$.
-
-Figure out the total number of ones in the sequence using as few queries as possible.
+Ta reda på hur många ettor som finns i följden genom att ställa så få frågor som möjligt.
 
 \section*{Interactivity}
-This problem is interactive.
+Detta problem är interaktivt.
 
-Your program should start by reading an integer $n$, the length of the sequence.
+Du ska första läsa in ett heltal $n$, längden på följden.
 
-Then for each query you make, you should print a single line containing a question mark ("?") and
-four integers $0 \leq a \leq b \leq c \leq d \leq n$, separated by spaces.
-The grader will then read these numbers, and in return print a line with either $-1$, $0$ or $1$, which can be read by your program.
+Sen ska du, för varje fråga du ställer, skriva ut en rad med ett frågetecken ("?") och fyra heltal
+$0 \leq a \leq b \leq c \leq d \leq n$, med mellanslag mellan. Domaren kommer läsa dessa tal,
+och svara med en rad med ett tal, antingen $-1$, $0$ eller $1$, som ditt program ska läsa.
 
-You should then repeat this until you want to guess how many ones there are,
-which you do by printing a line containing an exclamation mark ("!") followed by a single number $x$, separated by a space.
-After you printed this line, your program should terminate (otherwise it might be judged as Time Limit Exceeded).
-If the number $x$ is correct, you pass the test case.
+Ditt program ska upprepa detta tills du vill gissa hur många ettor som finns i följden. Det gör
+du genom att skriva ut en rad med ett utropstecken ("!") följt av ett enda heltal $x$, antalet ettor
+du tror finns i följden. När du skrivit ut detta tal ska ditt program avslutas (annars kan det bli
+Time Limit Exceeded). Om talet $x$ är korrekt, klarar du det testfallet.
 
-You \emph{must} make sure to flush standard output before reading the grader's response, or else your program
-will get judged as Time Limit Exceeded. This works as follows in various languages:
+Du \emph{måste} se till att flusha standard output innan du läser domarens svar, annars kommer ditt program
+få Time Limit Exceeded. Det gör man på följande vis i olika språk:
 \begin{itemize}
   \item Java: \texttt{System.out.println()} flushes automatically.
   \item Python: \texttt{print()} flushes automatically.
@@ -31,21 +30,18 @@ will get judged as Time Limit Exceeded. This works as follows in various languag
   \item Pascal: \texttt{Flush(Output)}.
 \end{itemize}
 
-\section*{Constraints}
-The number $n$ is at most $2 \cdot 10^5$.
-Your solution will be tested on a set of test groups, each worth a number of points.
-Each test group contains a set of test cases.
-To get the points for a test group you need to solve all test cases in the test group.
-Your final score will be the maximum score of a single submission.
+\section*{Begränsningar}
+Talet $n$ är som mest $2 \cdot 10^5$. Du kan ställa som mest $200$ frågor.
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+Din slutgiltiga poäng är den maximala poäng som uppnåddes i ett och samma försök.
 
 \noindent
 \begin{tabular}{| l | l | l |}
 \hline
-Group & Points & Constraints \\ \hline
-1     & 5     & There is either no ones or a single one. \\ \hline
-2     & 10    & The ones form a continuous segment. \\ \hline
-3     & 20    & You can use at most $n$ queries. \\ \hline
-4     & 35    & You can use at most $350$ queries. \\ \hline
-5     & ?     & Ones form a continuous segment and a 3*log(n) solution? \\ \hline
-6     & ?     & Konstantoptimering?
+Testgrupp & Poäng & Begränsningar \\ \hline
+1     & 5     & Det finns antingen en eller noll ettor. \\ \hline
+2     & 10    & $n \leq 200$ \\ \hline
+3     & 10    & Alla ettor ligger bredvid varandra. \\ \hline
+4     & 45    & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}

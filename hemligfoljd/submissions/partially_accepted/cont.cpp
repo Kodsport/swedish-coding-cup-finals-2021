@@ -28,16 +28,16 @@ int main(){
   ll n; cin >> n;
   ll a = 0, b = 2*(n-1);
   ll mid = (a+b)/2;
-  ll x = ask(0, (mid-1)/2+1, mid/2+1, n);
+  ll x = ask(0, (mid+1)/2, mid/2+1, n);
   while (x){
     if (x == -1) b = mid-1;
     else if (x == 1) a = mid+1;
     mid = (a+b)/2;
-    x = ask(0, (mid-1)/2+1, mid/2+1, n);
+    x = ask(0, (mid+1)/2, mid/2+1, n);
   }
 
   ll ans = 0;
-  a = 0, b = (mid-1)/2;
+  a = 0, b = (mid+1)/2-1;
   ll c = mid/2+1, d = n-1;
   if (c-b == 2){
     if (ask(0,0,b+1,b+2)) ans++;

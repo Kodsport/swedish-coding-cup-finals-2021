@@ -21,39 +21,11 @@ ll ask(ll a, ll b, ll c, ll d){
   return ans;
 }
 
-ll solve(ll lo, ll hi){
-  if (lo == hi){
-    ll x = ask(0,0,lo,hi+1);
-    if (x) return 1;
-    else return 0;
-  } else if (lo > hi) {
-    return 0;
-  }
-  ll a = 2*lo, b = 2*hi;
-  ll mid = (a+b)/2;
-  ll x = ask(lo, (mid+1)/2, mid/2+1, hi+1);
-  while (x){
-    if (x == -1) b = mid-1;
-    else if (x == 1) a = mid+1;
-    mid = (a+b)/2;
-    x = ask(lo, (mid+1)/2, mid/2+1, hi+1);
-  }
-  ll tmp;
-  if (hi - (mid/2+1) < ((mid+1)/2-1) - lo) tmp = solve(mid/2+1,hi);
-  else tmp = solve(lo,(mid+1)/2-1);
-  if (mid%2) {
-    return 2*tmp;
-  } else {
-    if (ask(0,0,mid/2,mid/2+1)) return 2*tmp+1;
-    else return 2*tmp;
-  }
-}
-
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(NULL); cout.tie(NULL);
   cout << setprecision(15) << fixed;
   ll n; cin >> n;
-  ll ans = solve(0,n-1);
+  ll ans = ask(0,0,0,n);
   cout << "! " << ans << endl;
 }
