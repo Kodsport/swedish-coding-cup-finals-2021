@@ -2,7 +2,7 @@
 
 . ../../testdata_tools/gen.sh
 
-use_solution sl.cpp opt
+use_solution sl_simd.cpp avx2
 
 compile gen_random.py
 
@@ -14,16 +14,19 @@ sample 3
 
 group group1 10
 limits k=1
+tc 1
 tc 1-rand1 gen_random k=1
 
 group group2 10
 limits k=2
 include_group group1
+tc 2
 tc 2-rand1 gen_random k=2
 
 group group3 10
 limits k=3
 include_group group2
+tc 3
 tc 3-rand1 gen_random k=3
 
 group group4 10
