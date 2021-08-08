@@ -1,9 +1,11 @@
 \problemname{Hemligfoljd}   % Hemlig Följd
 En hemlig följd innehåller $n$ tal, och varje tal är antingen en etta eller en nolla. Du vill ta reda på hur många
 ettor som finns i följden. För att göra det får du ställa frågor genom att specificera fyra heltal
-$0 \leq a \leq b \leq c \leq d \leq n$. Svaret på en fråga är $-1$ om summan av talen i intervallet $[a,b)$ är större
-än summan av talen i intervallet $[c,d)$, medan den är $1$ om summan är mindre. Om summorna är lika, så blir svaret $0$.
-Talen i följden är numrerade från $0$ till $n-1$.
+$0 \leq a \leq b \leq c \leq d \leq n$. Svaret på en fråga är $-1$ om summan av talen på positioner $a, a+1, ..., b-1$ är större
+än summan av talen på positioner $c, c+1, ..., d-1$, medan den är $1$ om summan är mindre. Om summorna är lika, så blir svaret $0$.
+
+Talen i följden är numrerade från $0$ till $n-1$. Notera att intervallen som du frågar om kan vara tomma, om $a = b$
+eller $b = c$, respektive. Summan av talen i ett tomt interval är $0$.
 
 Ta reda på hur många ettor som finns i följden genom att ställa så få frågor som möjligt.
 
@@ -45,3 +47,6 @@ Testgrupp & Poäng & Begränsningar \\ \hline
 3     & 10    & Alla ettor ligger bredvid varandra. \\ \hline
 4     & 45    & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
+
+\section*{Sample Interaction}
+TODO
