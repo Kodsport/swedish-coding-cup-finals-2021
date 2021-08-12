@@ -1,4 +1,4 @@
-\problemname{Hemligfoljd}   % Secret Sequence
+\problemname{Secret Sequence}
 There is a secret sequence of zeros and ones with length $n$, and you want to know the number of ones in the sequence.
 You are allowed to ask queries by giving four integers $0 \leq a \leq b \leq c \leq d \leq n$. The answer
 to the query will be $-1$ if the sum of the numbers at positions $a, a+1, ..., b-1$ is larger than the
@@ -45,10 +45,21 @@ Your final score will be the maximum score of a single submission.
 \hline
 Group & Points & Constraints \\ \hline
 1     & 5     & There are either no ones or a single one. \\ \hline
-2     & 10    & $n \leq 200$ \\ \hline
+2     & 8    & $n \leq 200$ \\ \hline
 3     & 10    & The ones form a continuous segment. \\ \hline
-4     & 45    & No constraints. \\ \hline
+4     & 12    & $n \leq 4000$ \\ \hline
+5     & 35    & No constraints. \\ \hline
 \end{tabular}
 
-\section*{Sample Interaction}
-TODO
+\section*{Explanation of Sample 1}
+The secret sequence in this sample is $01101$, so $n = 5$, which is what the judge writes on the first line.
+The program then asks which number is greater: the first (at position $0$) or the last (at position $4$).
+The judge answers that the last number is greater, so we then know it has to be a one while the first number is a zero.
+After this the program asks which is greater: the sum of the numbers at position $1$ and $2$ or the number at position $4$.
+The judge answers that the sum of the two numbers at position $1$ and $2$ is greater, and since we already
+know that there is a one at position $4$, this means both the numbers at position $1$ and $2$ are ones.
+Finally the program asks which is greater: the number at position $0$ or the number at position $3$.
+The judge answers that they are the same, and so since the number at position $0$ is zero, which we know
+from the first query, this is also the case for the number at position $3$.
+
+Hence there are $3$ ones in total, so the program answers this.
