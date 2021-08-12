@@ -4,6 +4,5 @@ rights_owner: Kodsport
 license: cc by-sa
 type: scoring
 grading:
-    objective: max
     show_test_data_groups: yes
 validation: custom interactive
