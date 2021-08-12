@@ -46,8 +46,8 @@ group group4 12
 limits n=4000 k=4000 cont=0 d=200
 include_group group1
 include_group group2
-tc bad-1 gen_random n=3978 k=0 d=200
-tc bad-2 gen_random n=3989 k=27 d=200
+tc bad-1 gen_random n=3978 k=5 d=200
+tc bad-2 gen_random n=3989 k=272 d=200
 tc bad-3 gen_random n=3998 k=3452 d=200
 tc bad-4 gen_random n=3999 k=2345 d=200
 tc bad-5 gen_random n=4000 k=927 d=200
