@@ -18,7 +18,7 @@ Your program should start by reading an integer $n$, the length of the sequence 
 
 Then for each query you make, you should print a single line containing a question mark (\texttt{?}) and
 four integers $0 \leq a \leq b \leq c \leq d \leq n$, separated by spaces.
-The grader will then read these numbers, and in return print a line with either $-1$, $0$ or $1$, which can be read by your program.
+The grader will then read these numbers and in return print a line with either $-1$, $0$ or, $1$, which can be read by your program.
 
 Your program should then repeat this until you want to guess how many ones there are,
 which you do by printing a line containing an exclamation mark (\texttt{!}) followed by a single integer number $x$, separated by a space.
@@ -59,10 +59,10 @@ Group & Points & Constraints \\ \hline
 The secret sequence in this sample is $01101$, so $n = 5$, which is what the judge writes on the first line.
 The program then asks which number is greater: the first (at position $0$) or the last (at position $4$).
 The judge answers that the last number is greater, so we then know it has to be a one while the first number is a zero.
-After this the program asks which is greater: the sum of the numbers at position $1$ and $2$ or the number at position $4$.
+After this, the program asks which is greater: the sum of the numbers at position $1$ and $2$ or the number at position $4$.
 The judge answers that the sum of the two numbers at position $1$ and $2$ is greater, and since we already
 know that there is a one at position $4$, this means both the numbers at position $1$ and $2$ are ones.
-Finally the program asks which is greater: the number at position $0$ or the number at position $3$.
+Finally, the program asks which is greater: the number at position $0$ or the number at position $3$.
 The judge answers that they are the same, and so since the number at position $0$ is zero, which we know
 from the first query, this is also the case for the number at position $3$.
 
