@@ -20,6 +20,6 @@ void run() {
 		words.insert(w);
 	}
 
-	assert(total <= 500'000);
+	assert(total <= Arg("m"));
 	assert((int)words.size() == n);
 }

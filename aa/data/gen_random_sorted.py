@@ -4,7 +4,7 @@ from util import *
 import random
 import string
 
-su = int(cmdlinearg('sum'))
+m = int(cmdlinearg('m'))
 n = int(cmdlinearg('n'))
 dens = float(cmdlinearg('dens'))
 cdens = float(cmdlinearg('cdens', 0.2))
@@ -12,7 +12,7 @@ bad = int(cmdlinearg('bad', 0))
 
 out = []
 seen = set()
-for size in random_nonempty_partition(su, n):
+for size in random_nonempty_partition(m, n):
     s = ''.join(random.choice("az") if random.random() < dens else "c" if random.random() < cdens else "b" for _ in range(size))
     s2 = s.replace("z", "aa")
     if s2 not in seen:

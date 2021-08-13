@@ -3,13 +3,13 @@ from util import *
 import random
 import string
 
-su = int(cmdlinearg('sum'))
+m = int(cmdlinearg('m'))
 n = int(cmdlinearg('n'))
 alphabet = cmdlinearg('alphabet', string.ascii_lowercase)
 
 out = []
 seen = set()
-for size in random_nonempty_partition(su, n):
+for size in random_nonempty_partition(m, n):
     s = ''.join(random.choice(alphabet) for _ in range(size))
     if s not in seen:
         seen.add(s)
