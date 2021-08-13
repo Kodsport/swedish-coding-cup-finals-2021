@@ -128,6 +128,7 @@ long double score(int n, int m, F fail) {
 		if(seen.find({u, v}) != seen.end())fail("Duplicate edge.\n");
 		seen.insert({u, v});
 	}
+	assert_done(cin, fail);
 
 	// Score
 	vector<bigint> size;
@@ -159,7 +160,7 @@ int main(int argc, char** argv) {
 
 	int n, m;
 	fin >> n >> m;
-	assert_done(fin, die);
+	assert_done(fin, judge_error);
 	fin.close();
 
 	try {
