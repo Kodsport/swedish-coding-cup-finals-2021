@@ -1,5 +1,5 @@
 \problemname{Ligatures}
-Vivi designs fonts. Blah blah ligatures.
+Vivi designs fonts. She is almost done with her new masterpiece, but thinks that there is something missing. She has therefore decided to add some ligatures. A ligature occurs when two caracters are combined into a single glyph. For example, "ff" often becomes "ﬀ" and "ae" sometimes becomes "æ". Vivi knows the importance of choosing the right ligature, maybe her ligature will become as lasting as the ligature "&" (which comes from the latin word "et", meaning "or"). Typically, ligatures are chosen for caracter pairs that occur often. A good set of ligatures will not include too many unique ligatures, but will result in many occurences. Taking this task very seriously, she has prepared $Q$ sets of possible ligatures with $K$ unique ligatures in each. She now asks you to test each of her sets of ligatures against her corpus to see which set results in the most occurences. It is important to note that the corpus is read from left to right.
 
 Given a list of suggested sets of ligatures, compute the number of ligature occurrences
 across the corpus for each suggestion.
@@ -38,3 +38,17 @@ Group & Points & Constraints \\ \hline
 5     & 10     & $K \le 10$ \\ \hline
 6     & 10     & $K \le 20$ \\ \hline
 \end{tabular}
+
+\section*{Explanation of Sample 1}
+The ligature "aa" would occur as "ababba \texbft{aa} b \textbf{aa} ab \textbf{aa} \textbf{aa}". It would occur 4 times. 
+The ligature "ba" would occur as "a \textbf{ba} b \textbf{ba} \textbf{ba} a \textbf{ba} aa \textbf{ba} aaa". It would occur 5 times. 
+Simmilarly, "ab" would occur 5 times, and "bb" would only occur once as "aba \textbf{bb} abaabaaabaaaa".
+
+\section*{Explanation of Sample 2}
+For the first set, we have the ligatures "aa" and "ab". Reading the corpus from left to right, we get the 8 occurences: 
+"bc \textbf{ab} \textbf{ab} b \textbf{ab} \textbf{aa} b \textbf{aa} \textbf{ab} \textbf{aa} \textbf{aa}".
+For the second, "aa" occurs 4 times, and "bb" 1 time, resulting in 5 total occurences.
+For the third, "ab" occurs 5 times. "bb" will never occur.
+For the fourth set, we have the ligatures "ab" and "ba". Reading the corpus from left to right, we get the 6 occurences: 
+"bc \textbf{ab} \textbf{ab} \textbf{ba} \textbf{ba} \textbf{ab} aa \textbf{ab} aaaa".
+In a similar fashion, "bc" will occur once in the fith set, and in the last set, "ca" occurs once and "ba" 5 times. 
