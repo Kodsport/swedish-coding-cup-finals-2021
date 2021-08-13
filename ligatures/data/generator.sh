@@ -2,7 +2,7 @@
 
 . ../../testdata_tools/gen.sh
 
-use_solution sl_simd.cpp
+use_solution sl_simd.cpp opt
 
 compile gen_random.py
 
@@ -75,7 +75,7 @@ include_group group5
 tc 6-rand1 gen_random k=20
 tc 6-rand2 gen_random k=20 a=inv3 b=inv
 tc 6-rand3 gen_random k=20 a=inv3 b=inv3
-tc 6-rand4 gen_random k=20 a=4 b=4 # q ~ 4^2k / k!
+tc 6-rand4 gen_random k=20 a=6 b=6 # q ~ (6^2 choose k)
 tc 6-rand5 gen_random k=20 a=inv b=inv
 tc 6-aaa gen_random k=20 a=1 b=inv attempts=1
 tc 6-ab gen_random k=20 a=1,b b=inv
