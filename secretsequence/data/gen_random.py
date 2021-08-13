@@ -1,5 +1,5 @@
 #!/usr/bin/env pypy
-#First placing one of each type, then randomizing the rest.
+# Random ones.
 
 import sys
 import random
@@ -14,13 +14,11 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 k = int(cmdlinearg('k'))
-d = int(cmdlinearg('d'))
-lst = [i for i in range(n)]
-random.shuffle(lst)
+
 v = ["0" for i in range(n)]
 
-for i in range(k):
-    v[lst[i]] = "1"
+for i in random.sample(range(n), k):
+    v[i] = "1"
 
-print(n,d)
+print(n)
 print(" ".join(v))

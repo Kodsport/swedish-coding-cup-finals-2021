@@ -1,5 +1,5 @@
 #!/usr/bin/env pypy
-#First placing one of each type, then randomizing the rest.
+# Contiguous ones.
 
 import sys
 import random
@@ -14,12 +14,12 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 k = int(cmdlinearg('k'))
-d = int(cmdlinearg('d'))
-a = random.randint(0,n-k)
+
 v = ["0" for i in range(n)]
 
+a = random.randint(0,n-k)
 for i in range(a,a+k):
     v[i] = "1"
 
-print(n,d)
+print(n)
 print(" ".join(v))

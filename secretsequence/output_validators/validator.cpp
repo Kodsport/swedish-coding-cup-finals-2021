@@ -1,5 +1,6 @@
 // Usage: ./validator .in-file .ans-file dir <in >out
 #include <iostream>
+#include <vector>
 #include <fstream>
 #include <string>
 #include <cassert>
@@ -54,86 +55,63 @@ void judge_error2(const char* a, const char* b, const char* c) {
 #define STR(x) STR2(x)
 #define assert(x) do { if (!(x)) { judge_error2(__FILE__ ":" STR(__LINE__) ": ", __PRETTY_FUNCTION__, ": Assertion `" #x "' failed."); } } while (0)
 
-int readnum(const char* str, int max, const string& line) {
-	if (!str[0]) reject_line("invalid format (empty token)", line);
-	int cur = 0;
-	while (*str) {
-		int dig = *str++ - '0';
-		if (dig + '0' - ' ' == 0) break;
-		if (dig < 0 || dig > 9) reject_line("invalid format (not a digit)", line);
-		cur *= 10;
-		cur += dig;
-		if (cur > max) reject_line("out of bounds (too large)", line);
-	}
-	return cur;
-}
 
+const int maxQueries = 200;
 
 int main(int argc, char** argv) {
 	assert(argc >= 2);
 	if (argc >= 4) out_dir = argv[3];
 	ifstream fin(argv[1]);
-	int n,dd;
-	fin >> n >> dd;
-  int vals[n];
-  for (int i = 0; i < n; i++){
-    fin >> vals[i];
-  }
-  int sums[n+1]; sums[0] = 0;
-  for (int i = 0; i < n; i++){
-    sums[i+1] = sums[i]+vals[i];
-  }
-  int k = sums[n];
+	int n;
+	fin >> n;
+	vector<int> vals(n);
+	for (int i = 0; i < n; i++){
+		fin >> vals[i];
+	}
+	vector<int> sums(n+1);
+	for (int i = 0; i < n; i++){
+		sums[i+1] = sums[i] + vals[i];
+	}
+	int sum = sums[n];
 	string dummy;
 	assert(!(fin >> dummy));
 
 	cout << n << endl;
-	int num = 0;
-	string line;
-	while (num <= dd) {
-		if (!getline(cin, line)) reject("eof");
-    char tmp = line[0];
-    if (tmp == '?'){
-      int a = readnum(line.c_str()+2, n, line);
-			int i = 2;
-			while (line[i] != ' ') i++;
-			i++;
-			int b = readnum(line.c_str()+i, n, line);
-			while (line[i] != ' ') i++;
-			i++;
-			int c = readnum(line.c_str()+i, n, line);
-			while (line[i] != ' ') i++;
-			i++;
-			int d = readnum(line.c_str()+i, n, line);
 
-      if (!(0 <= a && a <= b && b <= c && c <= d && d <= n)){
-        reject("invalid query");
-      }
-      int cnt1 = sums[b] - sums[a];
-      int cnt2 = sums[d] - sums[c];
-      if (cnt2 > cnt1) {
-        cout << 1 << endl;
-      } else if (cnt2 < cnt1) {
-        cout << -1 << endl;
-      } else if (cnt2 == cnt1) {
-        cout << 0 << endl;
-      }
-    } else if (tmp == '!') {
-      int ans = readnum(line.c_str()+2, n, line);
-			if (ans == k){
-				if (cin >> line){
-					reject("expected eof");
-				} else {
-					accept("ac");
-				}
-			} else {
-				reject("wrong!");
+	int num = 0;
+	while (num <= maxQueries) {
+		char qtype;
+		cin >> qtype;
+		if (!cin) reject("eof");
+
+		if (qtype == '?'){
+			long long a, b, c, d;
+			cin >> a >> b >> c >> d;
+			if (!cin) reject("bad ? query");
+			if (!(0 <= a && a <= b && b <= c && c <= d && d <= n)){
+				reject("out of range for ? query");
 			}
-    } else {
-      reject("invalid query");
-    }
+			int cnt1 = sums[b] - sums[a];
+			int cnt2 = sums[d] - sums[c];
+			if (cnt2 > cnt1) {
+				cout << 1 << endl;
+			} else if (cnt2 < cnt1) {
+				cout << -1 << endl;
+			} else if (cnt2 == cnt1) {
+				cout << 0 << endl;
+			}
+		} else if (qtype == '!') {
+			long long ans;
+			cin >> ans;
+			if (!cin) reject("bad ! query");
+			if (ans != sum) reject("wrong: " + to_string(ans) + " vs " + to_string(sum));
+			if (cin >> dummy) reject("expected eof");
+			accept("ac");
+		} else {
+			reject("invalid query");
+		}
 		num++;
-		if (num == dd+1){
+		if (num == maxQueries+1){
 			reject("too many queries");
 		}
 	}
