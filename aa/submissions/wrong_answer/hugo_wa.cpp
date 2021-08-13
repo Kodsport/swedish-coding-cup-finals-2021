@@ -25,22 +25,39 @@ int main(){
   rep(i,0,n) { cin >> tmp; inp.push_back(tmp+" "); }
   string cur = inp[0];
   rep(i,1,n){
+    cout << cur << endl;
     ll j = 0, k = 0;
-    while (j < sz(cur) && k < sz(inp[i]) && inp[i][k] == cur[j]){ j++; k++; }
-    if (inp[i][k]-' ' > cur[j]-' '){
-      cur = inp[i];
-      continue;
-    } else {
-      if (k == sz(inp[i])-1) k--;
-      while (k >= 0 && !(inp[i][k] == 'a' && inp[i][k+1] == 'a')) k--;
-      if (k < 0) { cout << "no" << endl; exit(0); }
-      cur = " ";
-      rep(l,0,sz(inp[i])){
-        if (l == k) continue;
-        if (l == k+1) cur += '(';
-        else cur += inp[i][l];
+    string nxt = "";
+    while (j < sz(cur) && k < sz(inp[i])){
+      if (inp[i][k] == cur[j]) { nxt += inp[i][k]; j++; k++; continue; }
+      else {
+        if (cur[j] == '{') {
+          if (k < sz(inp[i])-1 && inp[i][k] == 'a' && inp[i][k+1] == 'a'){
+            nxt += '{';
+            j++; k += 2;
+          } else {
+            break;
+          }
+        } else {
+          break;
+        }
       }
-      continue;
+    }
+    ll tmp = sz(nxt);
+    rep(l,k,sz(inp[i])) nxt += inp[i][l];
+    k = tmp;
+    if (inp[i][k]-' ' > cur[j]-' '){
+      cur = nxt;
+    } else {
+      if (k == sz(nxt)-1) k--;
+      while (k >= 0 && !(nxt[k] == 'a' && nxt[k+1] == 'a')) k--;
+      if (k < 0) { cout << "no" << endl; exit(0); }
+      cur = "";
+      rep(l,0,sz(nxt)){
+        if (l == k) continue;
+        if (l == k+1) cur += '{';
+        else cur += nxt[l];
+      }
     }
   }
   cout << "yes" << endl;
