@@ -36,10 +36,11 @@ void assert_done(istream& is, F fail) {
 	} catch(...) {}
 }
 
-struct bigint{
-	// A simple bigint struct with only + and <
+class bigint{
+	// A simple bigint class with only + and <, with numbers represented in base 2
 	vector<int> num;
-	bigint(long long v) {
+public:
+	explicit bigint(long long v) {
 		while(v != 0){
 			num.push_back(v%2);
 			v /= 2;
@@ -48,7 +49,7 @@ struct bigint{
 	bigint operator+(const bigint &v) {
 		bigint res(0);
 		int carry = 0;
-		for(int c1 = 0; c1 < max(num.size(), v.num.size()); c1++){
+		for(size_t c1 = 0; c1 < max(num.size(), v.num.size()); c1++){
 			int x = 0;
 			if(c1 < num.size()){
 				x = num[c1];
@@ -72,7 +73,7 @@ struct bigint{
 	bool operator<(const bigint &v) {
 		if(num.size() != v.num.size())return num.size() < v.num.size();
 		if(num.size() == 0)return 0;
-		for(int c1 = num.size()-1; c1 >= 0; c1--){
+		for(int c1 = (int)num.size()-1; c1 >= 0; c1--){
 			if(num[c1] < v.num[c1])return 1;
 			if(num[c1] > v.num[c1])return 0;
 		}
@@ -82,7 +83,7 @@ struct bigint{
 	long long to_ll(){
 		long long res = 0;
 		long long p = 1;
-		for(int c1 = 0; c1 < num.size(); c1++){
+		for(int c1 = 0; c1 < (int)num.size(); c1++){
 			res += p * num[c1];
 			p *= 2;
 		}
@@ -132,8 +133,7 @@ long double score(int n, int m, F fail) {
 	vector<bigint> size;
 	vector<int> parent;
 	for(int c1 = 0; c1 < n; c1++){
-		bigint one(1);
-		size.push_back(one);
+		size.push_back(bigint(1));
 		parent.push_back(c1);
 	}
 	for(int c1 = 0; c1 < m; c1++){
