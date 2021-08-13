@@ -1,16 +1,27 @@
 \problemname{Ligatures}
-Vivi designs fonts. She is almost done with her new masterpiece, but thinks that there is something missing. She has therefore decided to add some ligatures. A ligature occurs when two caracters are combined into a single glyph. For example, "ff" often becomes "ﬀ" and "ae" sometimes becomes "æ". Vivi knows the importance of choosing the right ligature, maybe her ligature will become as lasting as the ligature "&" (which comes from the latin word "et", meaning "or"). Typically, ligatures are chosen for caracter pairs that occur often. A good set of ligatures will not include too many unique ligatures, but will result in many occurences. Taking this task very seriously, she has prepared $Q$ sets of possible ligatures with $K$ unique ligatures in each. She now asks you to test each of her sets of ligatures against her corpus to see which set results in the most occurences. It is important to note that the corpus is read from left to right.
+Vivi works as a font designer.
+She is almost done with her new masterpiece, but thinks that there is something missing.
+She has therefore decided to add some ligatures.
+A ligature occurs when two characters are combined into a single glyph.
+For example, ``f{}f'' often becomes ``\ifplastex{ﬀ}\else{ff}\fi'', and ``ae'' would sometimes become ``æ'' in old Latin writing.
 
-Given a list of suggested sets of ligatures, compute the number of ligature occurrences
-across the corpus for each suggestion.
+Vivi knows the importance of choosing the right ligature -- with luck,
+maybe her ligature will become as lasting as the ligature ``\&'' (which comes from the Latin word ``et'', meaning ``and'')!
+Typically, ligatures are chosen for character pairs that occur often.
+A good set of ligatures will not include too many unique ligatures, but will result in many occurrences.
+
+Taking this task very seriously, Vivi has come up with $Q$ suggestions for possible ligature sets, with $K$ ligatures in each.
+She now asks you to test each of her suggestions against her corpus, and determine the number of ligature occurrences for each suggested set.
+
+It is important to note that the corpus is read from left to right, and ligatures can't be combined with each other.
+% Thus, with ligatures for \texttt{ab}, \texttt{bc} and \texttt{cd}, \texttt{abcd} would count as having just two ligature occurrences -- the one for \texttt{bc} would never get used.
+Thus, with ligatures for ``ab'', ``bc`` and ``cd``, ``abcd'' would count as having just two ligature occurrences -- the one for ``bc`` would never get used.
 
 \section*{Input}
 The first line of the input contains three integers:
-\begin{itemize}
-  \item $N$: the size of the corpus ($1 \le N \le 10^6$),
-  \item $Q$: the number of suggestions ($1 \le Q \le 10^5$),
-  \item $K$: the number of ligatures for each suggestion ($1 \le K \le 20$).
-\end{itemize}
+  $N$ -- the size of the corpus ($1 \le N \le 10^6$);
+  $Q$ -- the number of suggestions ($1 \le Q \le 10^5$); and
+  $K$ -- the number of ligatures in each suggested set ($1 \le K \le 20$).
 
 The second line of the input contains a string with $N$ characters from \texttt{a-z}: the corpus.
 
@@ -39,16 +50,12 @@ Group & Points & Constraints \\ \hline
 6     & 10     & $K \le 20$ \\ \hline
 \end{tabular}
 
-\section*{Explanation of Sample 1}
-The ligature "aa" would occur as "ababba \texbft{aa} b \textbf{aa} ab \textbf{aa} \textbf{aa}". It would occur 4 times. 
-The ligature "ba" would occur as "a \textbf{ba} b \textbf{ba} \textbf{ba} a \textbf{ba} aa \textbf{ba} aaa". It would occur 5 times. 
-Simmilarly, "ab" would occur 5 times, and "bb" would only occur once as "aba \textbf{bb} abaabaaabaaaa".
+\section*{Explanation of Samples}
+The three samples correspond to the first three subtasks.
 
-\section*{Explanation of Sample 2}
-For the first set, we have the ligatures "aa" and "ab". Reading the corpus from left to right, we get the 8 occurences: 
-"bc \textbf{ab} \textbf{ab} b \textbf{ab} \textbf{aa} b \textbf{aa} \textbf{ab} \textbf{aa} \textbf{aa}".
-For the second, "aa" occurs 4 times, and "bb" 1 time, resulting in 5 total occurences.
-For the third, "ab" occurs 5 times. "bb" will never occur.
-For the fourth set, we have the ligatures "ab" and "ba". Reading the corpus from left to right, we get the 6 occurences: 
-"bc \textbf{ab} \textbf{ab} \textbf{ba} \textbf{ba} \textbf{ab} aa \textbf{ab} aaaa".
-In a similar fashion, "bc" will occur once in the fith set, and in the last set, "ca" occurs once and "ba" 5 times. 
+In the first query of the first sample, the ligature ``aa'' occurs as ``ababbab \textbf{aa} ba \textbf{aa} b \textbf{aa} \textbf{aa}''.
+It occurs 4 times.
+
+In the first query of the second sample, we have the ligatures ``aa'' and ``ab''.
+Reading the corpus from left to right, we get the 8 occurrences:
+``bc \textbf{ab} \textbf{ab} b \textbf{ab} \textbf{aa} b \textbf{aa} \textbf{ab} \textbf{aa} \textbf{aa}''.
