@@ -60,6 +60,7 @@ int main(){
       }
     }
   }
+  cout << cur << endl;
   cout << "yes" << endl;
 
 }
