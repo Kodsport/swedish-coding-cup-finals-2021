@@ -16,12 +16,12 @@ This problem is interactive.
 
 Your program should start by reading an integer $n$, the length of the sequence ($1 \le n \le 2 \cdot 10^5$).
 
-Then for each query you make, you should print a single line containing a question mark (?) and
+Then for each query you make, you should print a single line containing a question mark (\texttt{?}) and
 four integers $0 \leq a \leq b \leq c \leq d \leq n$, separated by spaces.
 The grader will then read these numbers, and in return print a line with either $-1$, $0$ or $1$, which can be read by your program.
 
 Your program should then repeat this until you want to guess how many ones there are,
-which you do by printing a line containing an exclamation mark (!) followed by a single integer number $x$, separated by a space.
+which you do by printing a line containing an exclamation mark (\texttt{!}) followed by a single integer number $x$, separated by a space.
 After you print this line, your program should terminate.
 If the number $x$ is correct, i.e. if it equals the number of ones in the sequence, you pass the test case.
 
@@ -30,7 +30,7 @@ will get judged as Time Limit Exceeded. This works as follows in various languag
 \begin{itemize}
   \item Java: \texttt{System.out.println()} flushes automatically.
   \item Python: \texttt{print()} flushes automatically.
-  \item C++: \texttt{cout << endl;} flushes, in addition to writing a newline. If using printf, \texttt{fflush(stdout)}.
+  \item C++: \texttt{cout <{}< endl;} flushes, in addition to writing a newline. If using printf, \texttt{fflush(stdout)}.
 \end{itemize}
 
 The grader is \emph{not} adaptive.
@@ -50,7 +50,7 @@ Your final score will be the maximum score of a single submission.
 Group & Points & Constraints \\ \hline
 1     & 5     & There are either no ones or a single one. \\ \hline
 2     & 8    & $n \leq 200$ \\ \hline
-3     & 10    & The ones form a continuous segment. \\ \hline
+3     & 10    & The ones form a contiguous segment. \\ \hline
 4     & 12    & $n \leq 4000$ \\ \hline
 5     & 35    & No constraints. \\ \hline
 \end{tabular}
