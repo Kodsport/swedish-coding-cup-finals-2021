@@ -9,6 +9,8 @@ a = cmdlinearg('a', "26")
 b = cmdlinearg('b', "26")
 uncor = int(cmdlinearg('uncor', 0))
 attempts = int(cmdlinearg('attempts', 5))
+reuse = float(cmdlinearg('reuse', 0.2))
+graphs = cmdlinearg('graph', '')
 
 alphabet = list(string.ascii_lowercase)
 random.shuffle(alphabet)
@@ -31,19 +33,46 @@ if uncor:
 alphabetb = ''.join(alpha(b))
 
 print(n, q, k)
-print(''.join(random.choice(alphabetsa[i % len(alphabetsa)]) for i in range(n)))
+s = []
+for i in range(n):
+    if random.random() < reuse and i >= 3:
+        c = s[~random.randrange(3)]
+    else:
+        c = random.choice(alphabetsa[i % len(alphabetsa)])
+    s.append(c)
+print(''.join(s))
+
+edges = None
+if graphs:
+    nodes = 0
+    edges = []
+    for i in range(0, len(graphs), 2):
+        a = ord(graphs[i]) - 97
+        b = ord(graphs[i+1]) - 97
+        nodes = max(nodes, a + 1, b + 1)
+        edges.append((a, b))
+
+def gen():
+    seen = set()
+    if edges:
+        vals = [random.choice(alphabetb) for i in range(nodes)]
+        for (a, b) in edges:
+            pair = vals[a] + vals[b]
+            seen.add(pair)
+    while len(seen) < k:
+        pair = random.choice(alphabetb) + random.choice(alphabetb)
+        if pair not in seen:
+            seen.add(pair)
+    return seen
+
 uniqueq = set()
 for _ in range(q):
     for _2 in range(attempts):
-        seen = set()
-        s = ''
-        while len(seen) < k:
-            pair = random.choice(alphabetb) + random.choice(alphabetb)
-            if pair not in seen:
-                seen.add(pair)
-                s += pair
+        seen = gen()
         sorteds = ''.join(sorted(seen))
         if sorteds not in uniqueq:
             uniqueq.add(sorteds)
             break
-    print(s)
+    s2 = list(seen)
+    random.shuffle(s2)
+    print(''.join(s2))
