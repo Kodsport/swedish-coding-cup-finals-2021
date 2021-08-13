@@ -1,3 +1,4 @@
+#pragma GCC target ("avx2")
 #include <iostream>
 #include <vector>
 #include <string>
