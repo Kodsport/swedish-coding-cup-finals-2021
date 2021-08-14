@@ -60,7 +60,7 @@ int main() {
 	int N;
 	cin >> N;
 	wl.resize(N);
-	mem.assign(N, vector<vi>(N+1, vi(5002, -1)));
+	mem.assign(N, vector<vi>(N+1, vi(2002, -1)));
 	rep(i,0,N) cin >> wl[i], wl[i] += preA;
 	cout << (rec(0, N, 0) ? "yes" : "no") << endl;
 	exit(0);

@@ -9,7 +9,7 @@ compile gen_random_sorted.py pypy
 compile gen_rec.py
 
 samplegroup
-limits n=100 m=1000
+limits n=50 m=1000
 sample 1
 sample 2
 sample 3
@@ -22,9 +22,21 @@ tc 1
 tc 2
 tc 1-rand1 gen_random n=2 m=5000000
 tc 1-rand2 gen_random n=2 m=5000000 alphabet=aaab
+tc 1-rand3 gen_random n=2 m=5000000 alphabet=aaab
+tc 1-rand4 gen_random n=2 m=5000000 alphabet=aaab
+tc 1-rand5 gen_random n=2 m=5000000 alphabet=aaab
+tc 1-rand6 gen_random n=2 m=5000000 alphabet=aaab
+tc 1-smallrand1 gen_random n=2 m=10 alphabet=aab
+tc 1-smallrand2 gen_random n=2 m=10 alphabet=aab
+tc 1-smallrand3 gen_random n=2 m=10 alphabet=aab
+tc 1-smallrand4 gen_random n=2 m=10 alphabet=ab
+tc 1-smallrand5 gen_random n=2 m=10 alphabet=ab
+tc 1-smallrand6 gen_random n=2 m=10 alphabet=ab
+tc 1-smallrand7 gen_random n=2 m=10 alphabet=ab
+tc 1-smallrand8 gen_random n=2 m=10 alphabet=ab
 
 group group2 20
-limits n=100 m=5000
+limits n=50 m=2000
 tc 3
 tc 4
 tc 5
@@ -36,37 +48,37 @@ tc_manual ../manual-tests/manual5.in
 tc_manual ../manual-tests/manual6.in
 tc_manual ../manual-tests/manual7.in
 tc_manual ../manual-tests/manual8.in
-tc 2-garbage gen_random n=100 m=5000
-tc 2-yes1 gen_random_sorted n=100 m=5000 dens=0.8
-tc 2-no1 gen_random_sorted n=100 m=5000 dens=0.8 bad=1
-tc 2-yesrec1 gen_rec n=65 m=3200
-tc 2-norec1 gen_rec n=65 m=3200 bad=1 seed=7
-tc 2-smallno1 gen_random_sorted n=100 m=1000 dens=0.8 bad=1
-tc 2-yes2 gen_random_sorted n=100 m=5000 dens=0.8
-tc 2-yes3 gen_random_sorted n=100 m=5000 dens=0.8
-tc 2-yes4 gen_random_sorted n=100 m=5000 dens=0.8
-tc 2-yes5 gen_random_sorted n=100 m=5000 dens=0.8
-tc 2-yes6 gen_random_sorted n=100 m=5000 dens=0.8
-tc 2-smallyes1 gen_random_sorted n=100 m=1000 dens=0.8
-tc 2-smallyes2 gen_random_sorted n=100 m=1000 dens=0.8
-tc 2-smallyes3 gen_random_sorted n=100 m=1000 dens=0.8
-tc 2-smallyes4 gen_random_sorted n=100 m=1000 dens=0.8
-tc 2-smallyes5 gen_random_sorted n=100 m=1000 dens=0.8
-tc 2-smallyes6 gen_random_sorted n=100 m=1000 dens=0.8
-tc 2-no2 gen_random_sorted n=100 m=5000 dens=0.8 bad=1
-tc 2-no3 gen_random_sorted n=100 m=5000 dens=0.8 bad=1
-tc 2-no4 gen_random_sorted n=100 m=5000 dens=0.8 bad=1
-tc 2-no5 gen_random_sorted n=100 m=5000 dens=0.8 bad=1
-tc 2-no6 gen_random_sorted n=100 m=5000 dens=0.8 bad=1
-tc 2-smallno2 gen_random_sorted n=100 m=1000 dens=0.8 bad=1
-tc 2-smallno3 gen_random_sorted n=100 m=1000 dens=0.8 bad=1
-tc 2-smallno4 gen_random_sorted n=100 m=1000 dens=0.8 bad=1
-tc 2-smallno5 gen_random_sorted n=100 m=1000 dens=0.8 bad=1
-tc 2-smallno6 gen_random_sorted n=100 m=1000 dens=0.8 bad=1
-tc 2-norec2 gen_rec n=70 m=3700 i=1 bad=1 seed=5
-tc 2-yesrec2 gen_rec n=70 m=3700 i=1
-tc 2-norec3 gen_rec n=65 m=3200 bad=1 seed=6
-tc 2-yesrec3 gen_rec n=65 m=3200 seed=6
+tc 2-garbage gen_random n=50 m=2000
+tc 2-yes1 gen_random_sorted n=50 m=2000 dens=0.8
+tc 2-no1 gen_random_sorted n=50 m=2000 dens=0.8 bad=1
+tc 2-yesrec1 gen_rec n=30 m=1200 seed=123
+tc 2-norec1 gen_rec n=30 m=1300 bad=1 seed=8
+tc 2-smallno1 gen_random_sorted n=50 m=500 dens=0.8 bad=1
+tc 2-yes2 gen_random_sorted n=50 m=2000 dens=0.8
+tc 2-yes3 gen_random_sorted n=50 m=2000 dens=0.8
+tc 2-yes4 gen_random_sorted n=50 m=2000 dens=0.8
+tc 2-yes5 gen_random_sorted n=50 m=2000 dens=0.8
+tc 2-yes6 gen_random_sorted n=50 m=2000 dens=0.8
+tc 2-smallyes1 gen_random_sorted n=50 m=500 dens=0.8
+tc 2-smallyes2 gen_random_sorted n=50 m=500 dens=0.8
+tc 2-smallyes3 gen_random_sorted n=50 m=500 dens=0.8
+tc 2-smallyes4 gen_random_sorted n=50 m=500 dens=0.8
+tc 2-smallyes5 gen_random_sorted n=50 m=500 dens=0.8
+tc 2-smallyes6 gen_random_sorted n=50 m=500 dens=0.8
+tc 2-no2 gen_random_sorted n=50 m=2000 dens=0.8 bad=1
+tc 2-no3 gen_random_sorted n=50 m=2000 dens=0.8 bad=1
+tc 2-no4 gen_random_sorted n=50 m=2000 dens=0.8 bad=1
+tc 2-no5 gen_random_sorted n=50 m=2000 dens=0.8 bad=1
+tc 2-no6 gen_random_sorted n=50 m=2000 dens=0.8 bad=1
+tc 2-smallno2 gen_random_sorted n=50 m=500 dens=0.8 bad=1
+tc 2-smallno3 gen_random_sorted n=50 m=500 dens=0.8 bad=1
+tc 2-smallno4 gen_random_sorted n=50 m=500 dens=0.8 bad=1
+tc 2-smallno5 gen_random_sorted n=50 m=500 dens=0.8 bad=1
+tc 2-smallno6 gen_random_sorted n=50 m=500 dens=0.8 bad=1
+tc 2-norec2 gen_rec n=38 m=1550 i=1 bad=1 seed=6
+tc 2-yesrec2 gen_rec n=37 m=1500 i=1 125
+tc 2-norec3 gen_rec bad=1 n=30 m=1270 seed=132
+tc 2-yesrec3 gen_rec n=30 m=1270 seed=132
 
 group group3 35
 limits n=100000 m=5000000
