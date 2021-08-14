@@ -4,7 +4,7 @@ They have designed an arrangement of $N$ trees, each with a specific look.
 As the resident arborist of the competition, it's your job to fix the trees.
 
 You ordered $M$ trees, and the shipment arrived a minute ago.
-It may be the case that you can't pick $N$ trees of the exact right look out of these tree.
+It may be the case that you can't pick $N$ trees of the exact right look out of these trees.
 In this case, you must cut off some branches on some trees in order to transform their looks into those required in the tree arrangement.
 There's a slight problem -- the contest just started, so you need to fix those trees up right now before the award ceremony!
 
@@ -13,7 +13,7 @@ Each branch ends at a point called a \emph{vertex}, from which any number of new
 Two trees look the same if they have the same structure of branches and vertices.
 Note that the \emph{order} in which a set of branches grows from a vertex does not matter.
 
-To change the layout of a tree, you can use your trusty lopper to cut of edges that grow from a vertex, one at a time.
+To change the layout of a tree, you can use your trusty lopper to cut off edges that grow from a vertex, one at a time.
 Since you're low on time, you'd prefer to do this as fast as possible.
 If you choose and cut $N$ of the trees optimally, how many branches do you need to cut in total?
 
@@ -25,7 +25,7 @@ The first line contains two integers:
 Then $N + M$ descriptions of the trees follow -- first the $N$ trees in the arrangement, followed by the $M$ trees you had ordered.
 A tree description starts with an integer $0 \le B$ -- the number of branches of the tree.
 The next line contains $B$ integers.
-The $i$'th of these give you the number of the branch end (i.e. vertex) from which the $i$'th branch grows.
+The $i$'th of these gives you the number of the branch end (i.e. vertex) from which the $i$'th branch grows.
 If a branch grows from the root, this number is $0$.
 
 There are at most $1000$ branches in total among the $N + M$ trees.
@@ -43,8 +43,8 @@ Your final score will be the maximum score of a single submission.
 \begin{tabular}{| l | l | l | l |}
 \hline
 Group & Points & Constraints \\ \hline
-1     & 10     & Each vertex (including the root) have either $0$ or $1$ branches growing from it.  \\ \hline
-2     & 10     & $N = M = 1$, and each vertex (including the root) have either $0$, $1$ or $2$ branches growing from it.  \\ \hline
+1     & 10     & Each vertex (including the root) has either $0$ or $1$ branches growing from it.  \\ \hline
+2     & 10     & $N = M = 1$, and each vertex (including the root) has either $0$, $1$ or $2$ branches growing from it.  \\ \hline
 3     & 10     & No additional constraints. \\ \hline
 \end{tabular}
 

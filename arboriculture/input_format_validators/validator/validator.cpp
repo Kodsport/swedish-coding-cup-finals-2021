@@ -2,7 +2,7 @@
 
 void run() {
   int maxB = Arg("maxB");
-	int N = Int(1, 500); Space();
+  int N = Int(1, 500); Space();
   int M = Int(N, 500); Endl();
   if ((int)Arg("singleTree")) {
     assert(N == 1 && M == 1);
@@ -24,6 +24,8 @@ void run() {
     } else {
       Endl();
     }
+    branches += B;
   }
+  assert(branches <= 1000);
   Eof();
 }
