@@ -47,6 +47,7 @@ tc 3-rand1 gen_random k=3 reuse=0.7
 tc 3-graph1 gen_random k=3 a=inv b=inv graph=abbccd reuse=0.9
 tc 3-graph2 gen_random k=3 a=inv b=inv graph=abbbbc reuse=0.9
 tc 3-graph3 gen_random k=3 a=inv b=inv graph=abbabc reuse=0.9
+tc 3-froma gen_random k=3 a=inv2 b=inv2 bfroma=1
 tc 3-rand2 gen_random k=3 a=inv b=inv attempts=1  # slightly biased towards a's
 tc 3-rand3 gen_random k=3 a=inv3 b=inv3 reuse=0.7 attempts=1  # very biased towards a's
 tc 3-rand4 gen_random k=3 a=11 b=10 reuse=0.7 # q ~ 10^2k / k!
@@ -64,6 +65,7 @@ tc 4-rand1 gen_random k=4 reuse=0.7
 tc 4-graph1 gen_random k=4 a=inv b=inv graph=abbccdde reuse=0.1
 tc 4-graph2 gen_random k=4 a=inv b=inv graph=abbbbccd reuse=0.3
 tc 4-graph3 gen_random k=4 a=inv b=inv graph=daabbabc reuse=0.9
+tc 4-froma gen_random k=4 a=inv2 b=inv2 bfroma=1
 tc 4-rand2 gen_random k=4 a=inv3 b=inv3 reuse=0.7 attempts=1
 tc 4-rand3 gen_random k=4 a=7 b=7 reuse=0.7 # q ~ 7^2k / k!
 tc 4-rand4 gen_random k=4 a=inv b=inv
@@ -74,6 +76,7 @@ group group5 10
 limits k=5
 include_group group4
 tc 5-rand1 gen_random k=5 reuse=0.7
+tc 5-froma gen_random k=5 a=inv2 b=inv2 bfroma=1
 tc 5-rand2 gen_random k=5 a=inv3 b=inv3 reuse=0.7 attempts=1
 tc 5-rand3 gen_random k=5 a=7 b=6 # q ~ 6^2k / k!
 tc 5-rand4 gen_random k=5 a=inv b=inv
@@ -84,6 +87,7 @@ group group6 10
 limits k=20
 include_group group5
 tc 6-rand1 gen_random k=20 reuse=0.7
+tc 6-froma gen_random k=20 bfroma=1
 tc 6-rand2 gen_random k=20 a=inv3 b=inv
 tc 6-rand3 gen_random k=20 a=inv3 b=inv3
 tc 6-rand4 gen_random k=20 a=6 b=6 # q ~ (6^2 choose k)

@@ -11,6 +11,7 @@ uncor = int(cmdlinearg('uncor', 0))
 attempts = int(cmdlinearg('attempts', 5))
 reuse = float(cmdlinearg('reuse', 0.2))
 graphs = cmdlinearg('graph', '')
+bfroma = int(cmdlinearg('bfroma', 0))
 
 alphabet = list(string.ascii_lowercase)
 random.shuffle(alphabet)
@@ -40,7 +41,8 @@ for i in range(n):
     else:
         c = random.choice(alphabetsa[i % len(alphabetsa)])
     s.append(c)
-print(''.join(s))
+s = ''.join(s)
+print(s)
 
 edges = None
 if graphs:
@@ -57,12 +59,13 @@ def gen():
     if edges:
         vals = [random.choice(alphabetb) for i in range(nodes)]
         for (a, b) in edges:
-            pair = vals[a] + vals[b]
-            seen.add(pair)
+            seen.add(vals[a] + vals[b])
+    if bfroma:
+        base = random.randrange(n - k - 1)
+        for i in range(random.randint(2, k)):
+            seen.add(s[base + i : base + i + 2])
     while len(seen) < k:
-        pair = random.choice(alphabetb) + random.choice(alphabetb)
-        if pair not in seen:
-            seen.add(pair)
+        seen.add(random.choice(alphabetb) + random.choice(alphabetb))
     return seen
 
 uniqueq = set()
