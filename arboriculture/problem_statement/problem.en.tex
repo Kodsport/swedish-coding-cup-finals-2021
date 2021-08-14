@@ -19,11 +19,11 @@ If you choose and cut $N$ of the trees optimally, how many branches do you need 
 
 \section*{Input}
 The first line contains two integers:
-  $N$ -- the number of trees in the arrangement ($1 \le 100 \le N$),
-  $M$ -- the number of trees you have ordered ($N \le 100 \le M$).
+  $N$ -- the number of trees in the arrangement ($1 \le N \le 500$),
+  $M$ -- the number of trees you have ordered ($N \le M \le 500$).
 
 Then $N + M$ descriptions of the trees follow -- first the $N$ trees in the arrangement, followed by the $M$ trees you had ordered.
-A tree description starts with an integer $0 \le B \le 100$ -- the number of branches of the tree.
+A tree description starts with an integer $0 \le B$ -- the number of branches of the tree.
 The next line contains $B$ integers.
 The $i$'th of these give you the number of the branch end (i.e. vertex) from which the $i$'th branch grows.
 If a branch grows from the root, this number is $0$.
