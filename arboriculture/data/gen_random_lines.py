@@ -18,7 +18,7 @@ M = int(cmdlinearg('M'))
 goals = []
 starts = []
 
-left = 1000
+left = 500
 for _ in range(M):
     x = max(0, min(left, int(random.expovariate(M / left))))
     starts.append(x)

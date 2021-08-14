@@ -17,23 +17,28 @@ N = int(cmdlinearg("N"))
 M = int(cmdlinearg("M"))
 
 
-left = 700
-starts = []
-for i in range(M):
-    starts.append(random_uniform(B=random.randint(0, left // (M - i))))
+while True:
+    left = 600
+    starts = []
+    for i in range(M):
+        starts.append(random_uniform(B=random.randint(0, left // (M - i))))
+        left -= len(starts[-1])
 
-goals = []
-for par in random.sample(starts, N):
-    hascut = set()
-    remap = {0: 0}
-    newtree = []
-    for i, x in enumerate(par):
-        if random.randint(0, 10) == 0 or x in hascut:
-            hascut.add(i + 1)
-        else:
-            remap[i + 1] = len(newtree) + 1
-            newtree.append(remap[par[i]])
-    goals.append(newtree)
+    goals = []
+    for par in random.sample(starts, N):
+        hascut = set()
+        remap = {0: 0}
+        newtree = []
+        for i, x in enumerate(par):
+            if random.randint(0, 10) == 0 or x in hascut:
+                hascut.add(i + 1)
+            else:
+                remap[i + 1] = len(newtree) + 1
+                newtree.append(remap[par[i]])
+        goals.append(newtree)
+    s = sum(len(x) for x in starts + goals)
+    if s <= 1000:
+        break
 
 print(N, M)
 for t in goals:
