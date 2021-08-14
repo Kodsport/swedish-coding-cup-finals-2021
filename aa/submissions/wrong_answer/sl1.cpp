@@ -46,7 +46,7 @@ int main() {
 					j2++;
 					continue;
 				} else {
-					w2 += c;
+					w2 += aa;
 					j += 2;
 					while (j < n) w2 += w[j++];
 					goto ok;
@@ -63,7 +63,7 @@ int main() {
 				w3 += aa;
 				if (w2[k+1] == aa) w3 += 'a';
 				k += 2;
-				while (k < j2) {
+				while (k < sz(w2)) {
 					char c = w2[k++];
 					if (c == aa) w3 += 'a', w3 += 'a';
 					else w3 += c;

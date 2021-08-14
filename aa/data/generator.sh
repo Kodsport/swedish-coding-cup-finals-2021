@@ -8,8 +8,8 @@ use_solution sl.cpp opt
 # - fibonacci-based aaaz, aaay, aaax, ...
 # - pad those at start, end with identical strings
 
-compile gen_random.py
-compile gen_random_sorted.py
+compile gen_random.py pypy
+compile gen_random_sorted.py pypy
 
 samplegroup
 limits n=100 m=1000
