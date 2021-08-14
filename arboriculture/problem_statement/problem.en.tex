@@ -13,9 +13,9 @@ Each branch ends at a point called a \emph{vertex}, from which any number of new
 Two trees look the same if they have the same structure of branches and vertices.
 Note that the \emph{order} in which a set of branches grows from a vertex does not matter.
 
-To change the layout of a tree, you can use your trusty lopper to cut off edges that grow from a vertex, one at a time.
+To change the layout of a tree, you can use your trusty lopper to cut off branches that grow from a vertex, one branch at a time.
 Since you're low on time, you'd prefer to do this as fast as possible.
-If you choose and cut $N$ of the trees optimally, how many branches do you need to cut in total?
+If you choose and cut $N$ of the trees optimally, how many cuts do you need to make in total?
 
 \section*{Input}
 The first line contains two integers:
@@ -24,8 +24,8 @@ The first line contains two integers:
 
 Then $N + M$ descriptions of the trees follow -- first the $N$ trees in the arrangement, followed by the $M$ trees you had ordered.
 A tree description starts with an integer $0 \le B$ -- the number of branches of the tree.
-The next line contains $B$ integers.
-The $i$'th of these gives you the number of the branch end (i.e. vertex) from which the $i$'th branch grows.
+The next line contains $B$ integers, $a_1$, $a_2$, ..., $a_B$.
+Each integer $a_i$ means that there is a branch between vertex $a_i$ and vertex $i$.
 If a branch grows from the root, this number is $0$.
 
 There are at most $1000$ branches in total among the $N + M$ trees.
