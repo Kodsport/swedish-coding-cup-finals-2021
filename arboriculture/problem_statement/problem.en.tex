@@ -24,7 +24,7 @@ The first line contains two integers:
 
 Then $N + M$ descriptions of the trees follow -- first the $N$ trees in the arrangement, followed by the $M$ trees you had ordered.
 A tree description starts with an integer $0 \le B$ -- the number of branches of the tree.
-The next line contains $B$ integers, $a_1$, $a_2$, ..., $a_B$.
+The next line contains $B$ integers, $a_1$, $a_2$, ..., $a_B$, where $a_i < i$.
 Each integer $a_i$ means that there is a branch between vertex $a_i$ and vertex $i$.
 If a branch grows from the root, this number is $0$.
 
@@ -40,7 +40,7 @@ To get the points for a test group you need to solve all test cases in the test 
 Your final score will be the maximum score of a single submission.
 
 \noindent
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| l | l | p{10cm} |}
 \hline
 Group & Points & Constraints \\ \hline
 1     & 10     & Each vertex (including the root) has either $0$ or $1$ branches growing from it.  \\ \hline

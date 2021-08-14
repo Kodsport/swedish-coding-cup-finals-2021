@@ -18,7 +18,7 @@ The next $N$ lines each contain a non-empty string with characters from \texttt{
 All words are guaranteed to be unique.
 
 \section*{Output}
-If it is possible to pick out a set of \texttt{aa}'s in the input words that
+If it is possible to pick out a set of non-overlapping occurrences of \texttt{aa}'s in the input words that
 should be sorted as Å in such a way that the whole list becomes sorted, output \texttt{yes}.
 
 Otherwise, output \texttt{no}.
@@ -39,7 +39,7 @@ Group & Points & Constraints \\ \hline
 3     & 15     & $N \le 10^5, M \le 5\,000\,000$ \\ \hline
 \end{tabular}
 
-\section*{Sample Explanations}
+\section*{Explanations of Samples}
 In the first sample, we compare the words \texttt{aarhus} and \texttt{aahus}.
 If we interpret the a's in \texttt{aarhus} as pronounced separately, but the ones in \texttt{aahus} as making up a single sound, the word list becomes sorted.
 

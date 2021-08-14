@@ -8,24 +8,23 @@ You have just been hired by one of these labs to optimize the algorithms used in
 For example, when simulating complicated chemical reactions, it is important to keep track of 
 how many particles there are, and this is done by counting connected components in a graph.
 
-Currently, the lab has some python code (see attachments) that takes an undirected graph and 
-outputs the number of connected components. As you can see, this code is based on everyones 
-favourite data structure \emph{union-find}.
+Currently, the lab has some Python code (see attachments) that takes an undirected graph and 
+outputs the number of connected components. As you can see, this code is based on everyone's
+favourite data structure \emph{union-find}\footnote{
+  You can read about this data structure on Wikipedia: \url{https://en.wikipedia.org/wiki/Disjoint-set\_data\_structure}.
+}.
 
 After looking at the code for a while, you notice that it actually has a bug in it!  The code still 
 gives correct answers, but the bug could cause it to run inefficiently.
-You will be given the number of vertices and edges, and your task is to construct a graph where the 
-code runs slowly. We will count how many times the third line (the one inside the while loop) is 
-visited, and your program will get a score according to this number.
+Your task is to construct a graph with a given number of vertices and edges where the code runs very slowly.
+We will count how many times the third line (the one inside the while loop) is visited, and your program will get a score according to this number.
 
 \section*{Input}
-
 The input consists of one line with two integers $N$ and $M$, the number of vertices and edges
 your graph should have. Apart from the sample, there will be only one test case, with $N = 100$
 and $M = 500$.
 
 \section*{Output}
-
 The output consists of $M$ lines where the $i$:th contains two integers $u_i$ and $v_i$
 ($1 \leq u_i, v_i \leq N$). This indicates that the vertices $u_i$ and $v_i$ are connected
 with an edge in your graph.
@@ -35,14 +34,12 @@ from $v_i$ and all the sets $\{u_i, v_i\}$ must be distinct.
 
 
 \section*{Scoring}
-
 Let $X$ be the number of times the innermost while loop is visited when given your test case.
 Then your score will be $X / 100$.
 % TODO: decide on scoring
 
 You will not get any points for the sample test case.
 
-\section*{Sample Explanations}
-
+\section*{Explanations of Samples}
 In the sample case, the output contains a graph that causes the innermost loop to be visited $20$
 times. Run the code and see for yourself!
