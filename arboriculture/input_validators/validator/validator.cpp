@@ -4,6 +4,9 @@ void run() {
   int maxB = Arg("maxB");
 	int N = Int(1, 500); Space();
   int M = Int(N, 500); Endl();
+  if ((int)Arg("singleTree")) {
+    assert(N == 1 && M == 1);
+  }
   int branches = 0;
   for (int i = 0; i < N + M; i++) {
     int B = Int(0, 1000);

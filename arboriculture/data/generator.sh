@@ -6,12 +6,13 @@ use_solution js.cpp opt
 compile gen_random_lines.py
 
 samplegroup
-limits maxB=100
+limits maxB=100 singleTree=0
 sample 1
 sample 2
+sample 3
 
 group group1 10
-limits maxB=1
+limits maxB=1 singleTree=0
 tc 2
 tc line01 gen_random_lines N=100 M=100
 tc line02 gen_random_lines N=100 M=100
@@ -31,10 +32,11 @@ tc line15 gen_random_lines N=10 M=30
 tc line16 gen_random_lines N=10 M=30
 
 group group2 10
-limits maxB=2
-include_group group1
+limits maxB=2 singleTree=1
+tc 3
 
 group group3 10
-limits maxB=100
+limits maxB=100 singleTree=0
+include_group group1
 include_group group2
 tc 1
