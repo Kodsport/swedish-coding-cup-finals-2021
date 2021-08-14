@@ -8,6 +8,8 @@ compile gen_empty.py
 compile gen_binary_identical.py
 compile gen_binary_cuts.py
 compile gen_bincomplete_cuts.py
+compile gen_tricomplete_cuts.py
+compile gen_rand.py
 
 samplegroup
 limits maxB=100 singleTree=0
@@ -57,9 +59,41 @@ tc bincomplete-04 gen_bincomplete_cuts
 tc bincomplete-05 gen_bincomplete_cuts
 tc bincomplete-06 gen_bincomplete_cuts
 tc bincomplete-07 gen_bincomplete_cuts
+tc singleline-01 gen_random_lines N=1 M=1
+tc singleline-02 gen_random_lines N=1 M=1
+tc singleline-03 gen_random_lines N=1 M=1
 
 group group3 10
 limits maxB=100 singleTree=0
 include_group group1
 include_group group2
 tc 1
+tc tricomplete-01 gen_tricomplete_cuts
+tc tricomplete-02 gen_tricomplete_cuts
+tc tricomplete-03 gen_tricomplete_cuts
+tc tricomplete-04 gen_tricomplete_cuts
+tc tricomplete-05 gen_tricomplete_cuts
+tc tricomplete-06 gen_tricomplete_cuts
+tc tricomplete-07 gen_tricomplete_cuts
+tc rand1-01 gen_rand N=1 M=1
+tc rand1-02 gen_rand N=1 M=1
+tc rand1-03 gen_rand N=1 M=1
+tc rand1-04 gen_rand N=1 M=1
+tc rand1-05 gen_rand N=1 M=1
+tc rand1-06 gen_rand N=1 M=1
+tc rand1-07 gen_rand N=1 M=1
+tc rand1-08 gen_rand N=1 M=1
+tc rand1-09 gen_rand N=1 M=1
+tc rand1-10 gen_rand N=1 M=1
+tc rand1-11 gen_rand N=1 M=1
+tc rand12-01 gen_rand N=1 M=2
+tc rand12-02 gen_rand N=1 M=2
+tc rand12-03 gen_rand N=1 M=2
+tc rand12-04 gen_rand N=1 M=2
+tc rand1500-01 gen_rand N=10 M=400
+tc rand1500-02 gen_rand N=10 M=400
+tc rand1500-03 gen_rand N=10 M=400
+tc rand50-01 gen_rand N=50 M=50
+tc rand50-02 gen_rand N=50 M=50
+tc rand50-03 gen_rand N=50 M=50
+tc rand500-01 gen_rand N=500 M=500
