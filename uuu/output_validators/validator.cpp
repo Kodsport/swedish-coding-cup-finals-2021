@@ -140,10 +140,14 @@ long double score(int n, int m, F fail) {
 	for(int c1 = 0; c1 < m; c1++){
 		int u = edges[c1].first;
 		int v = edges[c1].second;
+
+		// Two find calls and one union call, just like in the attached code
+		FIND(u, parent);
+		FIND(v, parent);
 		UNION(u, v, parent, size);
 	}
 
-	return double(ANS);
+	return double(ANS) / 200.0;
 }
 
 int main(int argc, char** argv) {
