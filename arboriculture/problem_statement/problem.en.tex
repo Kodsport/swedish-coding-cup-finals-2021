@@ -1,0 +1,56 @@
+\problemname{Arboriculture}
+In preparation for the Swedish Coding Cup Finals, the organizing committee is decorating the hall for the award ceremony with beautiful juniper trees.
+They have designed an arrangement of $N$ trees, each with a specific look.
+As the resident arborist of the competition, it's your job to fix the trees.
+
+You ordered $M$ trees, and the shipment arrived a minute ago.
+It may be the case that you can't pick $N$ trees of the exact right look out of these tree.
+In this case, you must cut off some branches on some trees in order to transform their looks into those required in the tree arrangement.
+There's a slight problem -- the contest just started, so you need to fix those trees up right now before the award ceremony!
+
+Formally, a tree consists of a \emph{root}, from which a number of branches (possibly none!) extend.
+Each branch ends at a point called a \emph{vertex}, from which any number of new branches can extend.
+Two trees look the same if they have the same structure of branches and vertices.
+Note that the \emph{order} in which a set of branches grows from a vertex does not matter.
+
+To change the layout of a tree, you can use your trusty lopper to cut of edges that grow from a vertex, one at a time.
+Since you're low on time, you'd prefer to do this as fast as possible.
+If you choose and cut $N$ of the trees optimally, how many branches do you need to cut in total?
+
+\section*{Input}
+The first line contains two integers:
+  $N$ -- the number of trees in the arrangement ($1 \le 100 \le N$),
+  $M$ -- the number of trees you have ordered ($N \le 100 \le M$).
+
+Then $N + M$ descriptions of the trees follow -- first the $N$ trees in the arrangement, followed by the $M$ trees you had ordered.
+A tree description starts with an integer $0 \le B \le 100$ -- the number of branches of the tree.
+The next line contains $B$ integers.
+The $i$'th of these give you the number of the branch end (i.e. vertex) from which the $i$'th branch grows.
+If a branch grows from the root, this number is $0$.
+
+There are at most $1000$ branches in total among the $N + M$ trees.
+It is guaranteed that it's possible to transform the trees in the described manner.
+
+\section*{Output}
+Output a single integer -- the minimal number of edges you must cut to transform the layout of $N$ of the ordered trees into those of the trees in the arrangement.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points.
+To get the points for a test group you need to solve all test cases in the test group.
+Your final score will be the maximum score of a single submission.
+
+\noindent
+\begin{tabular}{| l | l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+1     & 10     & There are at most $20$ branches in total among all the trees. \\ \hline
+2     & 10     & Each vertex (including the root) have either $0$ or $1$ branches growing from it.  \\ \hline
+3     & 10     & Each vertex (including the root) have either $0$, $1$ or $2$ branches growing from it.  \\ \hline
+4     & 10     & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In the first sample, we ordered three trees and need to construct two trees.
+The second of the ordered trees exactly matches the first tree in the arrangement, so we can choose it without performing any cuts.
+The third of the ordered trees is similar to the second tree in the arrangement, except it has an extra branch from the root.
+Thus, we only need to perform a single cut to transform the tree.
