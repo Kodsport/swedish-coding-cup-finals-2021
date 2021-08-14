@@ -38,7 +38,7 @@ tc line14 gen_random_lines N=10 M=30
 tc line15 gen_random_lines N=10 M=30
 tc line16 gen_random_lines N=10 M=30
 
-group group2 20
+group group2 25
 limits maxB=2 singleTree=1
 tc empty
 tc 3
@@ -63,7 +63,7 @@ tc singleline-01 gen_random_lines N=1 M=1
 tc singleline-02 gen_random_lines N=1 M=1
 tc singleline-03 gen_random_lines N=1 M=1
 
-group group3 30
+group group3 25
 limits maxB=100 singleTree=0
 include_group group1
 include_group group2
