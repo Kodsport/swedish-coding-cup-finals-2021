@@ -147,7 +147,7 @@ long double score(int n, int m, F fail) {
 		UNION(u, v, parent, size);
 	}
 
-	return double(ANS) / 200.0;
+	return min(double(ANS) / 200.0, 100.0);
 }
 
 int main(int argc, char** argv) {

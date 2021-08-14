@@ -16,14 +16,14 @@ sample 3
 sample 4
 sample 5
 
-group group1 7
+group group1 5
 limits n=2 m=5000000
 tc 1
 tc 2
 tc 1-rand1 gen_random n=2 m=5000000
 tc 1-rand2 gen_random n=2 m=5000000 alphabet=aaab
 
-group group2 10
+group group2 20
 limits n=100 m=5000
 tc 3
 tc 4
@@ -68,7 +68,7 @@ tc 2-yesrec2 gen_rec n=70 m=3700 i=1
 tc 2-norec3 gen_rec n=65 m=3200 bad=1 seed=6
 tc 2-yesrec3 gen_rec n=65 m=3200 seed=6
 
-group group3 15
+group group3 35
 limits n=100000 m=5000000
 include_group group1
 include_group group2

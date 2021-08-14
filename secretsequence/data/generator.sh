@@ -20,7 +20,7 @@ tc one-6 gen_random n=1000 k=1
 tc_manual ../manual_tests/m1.in
 tc_manual ../manual_tests/m2.in
 
-group group2 8
+group group2 5
 limits n=200 k=200 cont=0
 tc on-1 gen_random n=196 k=0
 tc on-2 gen_random n=197 k=7
@@ -29,7 +29,7 @@ tc on-4 gen_random n=199 k=172
 tc on-5 gen_random n=200 k=194
 tc on-6 gen_random n=200 k=200
 
-group group3 10
+group group3 15
 limits n=200000 k=200000 cont=1
 include_group group1
 tc cont-1 gen_cont n=100000 k=8
@@ -42,7 +42,7 @@ tc cont-7 gen_cont n=200000 k=82343
 tc cont-8 gen_cont n=200000 k=199923
 tc cont-9 gen_cont n=199999 k=199999
 
-group group4 12
+group group4 20
 limits n=4000 k=4000 cont=0
 include_group group1
 include_group group2
@@ -53,7 +53,7 @@ tc bad-4 gen_random n=3999 k=2345
 tc bad-5 gen_random n=4000 k=927
 tc bad-6 gen_random n=4000 k=3562
 
-group group5 35
+group group5 15
 limits n=200000 k=200000 cont=0
 include_group group1
 include_group group2

@@ -23,7 +23,7 @@ tc 1-nooverlap gen_random k=1 a=1 b=1 uncor=1 seed=1
 tc 1-n1 gen_random n=1 k=1
 tc 1-q1 gen_random q=1 k=1
 
-group group2 10
+group group2 15
 limits k=2
 include_group group1
 tc 2
@@ -39,7 +39,7 @@ tc 2-aaa gen_random k=2 a=1 b=inv3 attempts=1
 tc 2-ab gen_random k=2 a=1,b b=inv3 attempts=1 reuse=0
 tc 2-graph1 gen_random k=2 a=inv b=inv graph=abbc reuse=0.9 attempts=1
 
-group group3 10
+group group3 25
 limits k=3
 include_group group2
 tc 3
@@ -58,7 +58,7 @@ tc 3-rand8 gen_random k=3 a=10 b=10 uncor=1
 tc 3-aaa gen_random k=3 a=1 b=inv3 attempts=1
 tc 3-ab gen_random k=3 a=1,b b=inv3 attempts=1 reuse=0
 
-group group4 10
+group group4 15
 limits k=4
 include_group group3
 tc 4-rand1 gen_random k=4 reuse=0.7
@@ -83,11 +83,11 @@ tc 5-rand4 gen_random k=5 a=inv b=inv
 tc 5-aaa gen_random k=5 a=1 b=inv3 attempts=1
 tc 5-ab gen_random k=5 a=1,b b=inv3 reuse=0
 
-group group6 10
+group group6 35
 limits k=20
 include_group group5
 tc 6-rand1 gen_random k=20 reuse=0.7
-tc 6-froma gen_random k=20 bfroma=1
+tc 6-froma gen_random k=20 a=inv bfroma=1
 tc 6-rand2 gen_random k=20 a=inv3 b=inv
 tc 6-rand3 gen_random k=20 a=inv3 b=inv3
 tc 6-rand4 gen_random k=20 a=6 b=6 # q ~ (6^2 choose k)
